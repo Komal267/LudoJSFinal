@@ -1,0 +1,293 @@
+:root {
+  --border: 3px solid black;
+  --borderPath: 1px solid black;
+  --tokenBorder: 30px solid;
+}
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+
+}
+
+body{
+  padding-top: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+  flex-direction: column;
+  gap: 5px;
+  overflow: auto;
+}
+
+.main-container {
+  margin-top: 10px;
+  width: 750px;
+  height: 750px;
+  display: grid;
+  grid-template-rows: repeat(5, 1fr);
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-areas:
+    "redBoard redBoard greenPath greenBoard greenBoard"
+    "redBoard redBoard greenPath greenBoard greenBoard"
+    "redPath redPath centerHome yellowPath yellowPath"
+    "blueBoard blueBoard bluePath yellowBoard yellowBoard"
+    "blueBoard blueBoard bluePath yellowBoard yellowBoard";
+  border: 2px solid darkblue;
+  position: relative;
+}
+
+#redBoard {
+  position: relative;
+  border: var(--tokenBorder) red;
+  display: grid;
+  grid-area: redBoard;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  place-items: center;
+}
+#greenBoard {
+  position: relative;
+  border: var(--tokenBorder) green;
+  display: grid;
+  grid-area: greenBoard;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+
+  place-items: center;
+}
+#blueBoard {
+  position: relative;
+  border: var(--tokenBorder) blue;
+  display: grid;
+  grid-area: blueBoard;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+
+  place-items: center;
+}
+#yellowBoard {
+  position: relative;
+  border: var(--tokenBorder) yellow;
+  display: grid;
+  grid-area: yellowBoard;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+
+  place-items: center;
+}
+
+#redPath {
+  grid-area: redPath;
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  border: var(--borderPath);
+}
+#greenPath {
+  grid-area: greenPath;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(6, 1fr);
+  border: var(--borderPath);
+}
+#yellowPath {
+  grid-area: yellowPath;
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  border: var(--borderPath);
+}
+#bluePath {
+  grid-area: bluePath;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(6, 1fr);
+  border: var(--borderPath);
+}
+#centerHome {
+  grid-area: centerHome;
+  position: relative;
+  overflow: hidden;
+}
+
+.colorTokens {
+  display: grid;
+  place-items: center;
+  width: 75%;
+  height: 75%;
+  border: var(--border);
+  border-radius: 50%;
+  position: relative;
+}
+
+.ludoBox {
+  border: var(--borderPath);
+  display: grid;
+  place-items: center;
+  position: relative;
+  
+}
+
+.redPath,.redToken {
+  background-color: red;
+}
+.greenPath,.greenToken {
+  background-color: green;
+}
+.yellowPath,.yellowToken {
+  background-color: yellow;
+}
+.bluePath,.blueToken {
+  background-color: blue;
+}
+.center {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  
+}
+
+.redCenter {
+  width: 100%;
+  height: 100%;
+  background-color: red;
+  transform: rotate(45deg) translate(-50%, 50%);
+  position: absolute;
+}
+
+.greenCenter {
+  background-color: green;
+  transform: rotate(45deg) translate(-50%, -50%);
+  position: absolute;
+}
+.yellowCenter {
+  background-color: yellow;
+  transform: rotate(45deg) translate(50%, -50%);
+  position: absolute;
+}
+.blueCenter {
+  background-color: blue;
+  transform: rotate(45deg) translate(50%, 50%);
+  position: absolute;
+}
+
+.color-tokens{
+width: 60%;
+height: 60%;
+border: var(--borderPath);
+border-radius: 50%;
+position: absolute;
+
+
+}
+.dice{
+  display: grid;
+  place-items: center;
+
+}
+
+#redDice{
+  position: absolute;
+  top: -67px;
+  width: 60px;
+  height: 60px;
+  border: var(--border);
+  border-radius:5px;
+}
+#greenDice{
+  position: absolute;
+  top: -67px;
+  right: 0;
+  width: 60px;
+  height: 60px;
+  border: var(--border);
+  border-radius:5px;
+}
+#blueDice{
+  position: absolute;
+  bottom: -67px;
+  width: 60px;
+  height: 60px;
+  border: var(--border);
+  border-radius:5px;
+}
+#yellowDice{
+  position: absolute;
+  bottom: -67px;
+  right: 0;
+  width: 60px;
+  height: 60px;
+  border: var(--border);
+  border-radius:5px;
+}
+.fa-star{
+  position: relative;
+  z-index: -20;
+}
+ .redCenter > span{
+    right: 0px;
+    width: 20%;
+    height: 20%;
+  }
+
+  .greenCenter > span{
+    right: 2%;
+    top: 80%;
+    width: 20%;
+    height: 20%;
+  }
+
+  .blueCenter > span{
+     left:0% ;
+     bottom: 80%; 
+     width: 20%;
+    height: 20%;
+  }
+  .yellowCenter > span{
+     top:80% ;
+     bottom: 80%; 
+     width: 20%;
+    height: 20%;
+  } 
+
+/* .redCenter > span,.blueCenter >span,.greenCenter >span,.yellowCenter> span{
+   width: 20%;
+    height: 20%;
+} */
+ .highlight{
+  animation: turnToken ease-in-out 2s infinite ;
+  border: 2px dashed black;
+  z-index: 20;
+ }
+
+ @keyframes turnToken {
+  10%{
+    transform: scale(0.8) rotate(90deg);
+    
+  }
+  40%{
+    transform: scale(0.9) rotate(180deg);
+     
+  }
+  70%{
+    transform: scale(1.1) rotate(270deg);
+     
+  }
+  100%{
+    transform: scale(1) rotate(360deg);
+     
+  }
+ }
+
+ #resetBtn{
+  padding: 10px 10px;
+  background-color: rgb(236, 131, 131);
+  font-size: 20px;
+  border-radius: 10px;
+  font-weight: 600;
+ }

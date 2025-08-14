@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="ludo.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+
+    <title>Ludo Game</title>
+  </head>
+  <body>
+    
+    <div class="main-container">
+      <div id="redDice" class="dice"><i
+              class="fa-solid fa-dice-one fa-3x"
+              id="diceIcon"
+              style="color: #f40101"
+              onclick="rollDice()"></i></div>
+      <div id="blueDice" class="dice"></div>
+      <div id="greenDice" class="dice"></div>
+      <div id="yellowDice" class="dice"></div>
+      <div id="redBoard" class="redPlayer">
+        <div class="colorTokens red-token" id="red1">
+          <span class="redToken color-tokens"  id="red01"></span>
+        </div>
+        <div class="colorTokens red-token" id="red2">
+          <span class="redToken color-tokens" id="red02"></span>
+        </div>
+        <div class="colorTokens red-token" id="red3">
+          <span class="redToken color-tokens" id="red03"></span>
+        </div>
+        <div class="colorTokens red-token" id="red4">
+          <span class="redToken color-tokens" id="red04"></span>
+        </div>
+      </div>
+      <div id="redPath" class="tokenPath">
+        <div class="ludoBox" data-index="1"></div>
+        <div class="ludoBox" data-index="2"><i class="fa fa-star"></i></div>
+        <div class="ludoBox" data-index="3"></div>
+        <div class="ludoBox" data-index="4"></div>
+        <div class="ludoBox" data-index="5"></div>
+        <div class="ludoBox" data-index="6"></div>
+        <div class="ludoBox" data-index="52"></div>
+        <div class="ludoBox redPath" data-index="red1"></div>
+        <div class="ludoBox redPath" data-index="red2"></div>
+        <div class="ludoBox redPath" data-index="red3"></div>
+        <div class="ludoBox redPath" data-index="red4"></div>
+        <div class="ludoBox redPath" data-index="red5"></div>
+        <div class="ludoBox" data-index="51"></div>
+        <div class="ludoBox" data-index="50"></div>
+        <div class="ludoBox" data-index="49"><i class="fa fa-star"></i></div>
+        <div class="ludoBox" data-index="48"></div>
+        <div class="ludoBox" data-index="47"></div>
+        <div class="ludoBox" data-index="46"></div>
+      </div>
+      <div id="greenBoard" class="greenPlayer">
+        <div class="colorTokens green-token" id="green1">
+          <span class="greenToken color-tokens" id="green01"></span>
+        </div>
+        <div class="colorTokens green-token" id="green2">
+          <span class="greenToken color-tokens" id="green02"></span>
+        </div>
+        <div class="colorTokens green-token" id="green3">
+          <span class="greenToken color-tokens" id="green03"></span>
+        </div>
+        <div class="colorTokens green-token" id="green4">
+          <span class="greenToken color-tokens" id="green04"></span>
+        </div>
+      </div>
+      <div id="greenPath" class="tokenPath">
+        <div class="ludoBox" data-index="12"></div>
+        <div class="ludoBox" data-index="13"></div>
+        <div class="ludoBox" data-index="14"></div>
+        <div class="ludoBox" data-index="11"></div>
+        <div class="ludoBox greenPath" data-index="green1"></div>
+        <div class="ludoBox" data-index="15"><i class="fa fa-star"></i></div>
+        <div class="ludoBox" data-index="10"><i class="fa fa-star"></i></div>
+        <div class="ludoBox greenPath" data-index="green2"></div>
+        <div class="ludoBox" data-index="16"></div>
+        <div class="ludoBox" data-index="9"></div>
+        <div class="ludoBox greenPath" data-index="green3"></div>
+        <div class="ludoBox" data-index="17"></div>
+        <div class="ludoBox" data-index="8"></div>
+        <div class="ludoBox greenPath" data-index="green4"></div>
+        <div class="ludoBox" data-index="18"></div>
+        <div class="ludoBox" data-index="7"></div>
+        <div class="ludoBox greenPath" data-index="green5"></div>
+        <div class="ludoBox" data-index="19"></div>
+      </div>
+      <div id="centerHome">
+        <div class="redCenter center redPath" data-index="red6"></div>
+        <div class="greenCenter center greenPath" data-index="green6"></div>
+        <div class="blueCenter center bluePath" data-index="blue6"></div>
+        <div class="yellowCenter center yellowPath" data-index="yellow6"></div>
+      </div>
+      <div id="blueBoard" class="bluePlayer">
+        <div class="colorTokens blue-token" id="blue1">
+          <span class="blueToken color-tokens" id="blue01"></span>
+        </div>
+        <div class="colorTokens blue-token" id="blue2">
+          <span class="blueToken color-tokens" id="blue02"></span>
+        </div>
+        <div class="colorTokens blue-token" id="blue3">
+          <span class="blueToken color-tokens" id="blue03"></span>
+        </div>
+        <div class="colorTokens blue-token" id="blue4">
+          <span class="blueToken color-tokens" id="blue04"></span>
+        </div>
+      </div>
+      <div id="bluePath" class="tokenPath">
+        <div class="ludoBox" data-index="45"></div>
+        <div class="ludoBox bluePath" data-index="blue5"></div>
+        <div class="ludoBox" data-index="33"></div>
+        <div class="ludoBox" data-index="44"></div>
+        <div class="ludoBox bluePath" data-index="blue4"></div>
+        <div class="ludoBox" data-index="34"></div>
+        <div class="ludoBox" data-index="43"></div>
+        <div class="ludoBox bluePath" data-index="blue3"></div>
+        <div class="ludoBox" data-index="35"></div>
+        <div class="ludoBox" data-index="42"></div>
+        <div class="ludoBox bluePath" data-index="blue2"></div>
+        <div class="ludoBox" data-index="36"><i class="fa fa-star"></i></div>
+        <div class="ludoBox" data-index="41"><i class="fa fa-star"></i></div>
+        <div class="ludoBox bluePath" data-index="blue1"></div>
+        <div class="ludoBox" data-index="37"></div>
+        <div class="ludoBox" data-index="40"></div>
+        <div class="ludoBox" data-index="39"></div>
+        <div class="ludoBox" data-index="38"></div>
+      </div>
+      <div id="yellowBoard" class="yellowPlayer">
+        <div class="colorTokens yellow-token" id="yellow1">
+          <span class="yellowToken color-tokens" id="yellow01"></span>
+        </div>
+        <div class="colorTokens yellow-token" id="yellow2">
+          <span class="yellowToken color-tokens" id="yellow02"></span>
+        </div>
+        <div class="colorTokens yellow-token" id="yellow3">
+          <span class="yellowToken color-tokens" id="yellow03"></span>
+        </div>
+        <div class="colorTokens yellow-token" id="yellow4">
+          <span class="yellowToken color-tokens" id="yellow04"></span>
+        </div>
+      </div>
+      <div id="yellowPath" class="tokenPath">
+        <div class="ludoBox" data-index="20"></div>
+        <div class="ludoBox" data-index="21"></div>
+        <div class="ludoBox" data-index="22"></div>
+        <div class="ludoBox" data-index="23"><i class="fa fa-star"></i></div>
+        <div class="ludoBox" data-index="24"></div>
+        <div class="ludoBox" data-index="25"></div>
+        <div class="ludoBox yellowPath" data-index="yellow5"></div>
+        <div class="ludoBox yellowPath" data-index="yellow4"></div>
+        <div class="ludoBox yellowPath" data-index="yellow3"></div>
+        <div class="ludoBox yellowPath" data-index="yellow2"></div>
+        <div class="ludoBox yellowPath" data-index="yellow1"></div>
+        <div class="ludoBox" data-index="26"></div>
+        <div class="ludoBox" data-index="32"></div>
+        <div class="ludoBox" data-index="31"></div>
+        <div class="ludoBox" data-index="30"></div>
+        <div class="ludoBox" data-index="29"></div>
+        <div class="ludoBox" data-index="28">
+          <i class="fa fa-star"></i>
+        </div>
+        <div class="ludoBox" data-index="27"></div>
+      </div>
+    </div>
+    <div class="reset-btn"><button id="resetBtn">Reset the Game</button></div>
+    <script src="ludo.js"></script>
+  </body>
+</html>
